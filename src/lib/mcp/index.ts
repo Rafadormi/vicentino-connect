@@ -3,8 +3,9 @@ import listarParoquias from "./tools/listar-paroquias";
 import buscarAssistidos from "./tools/buscar-assistidos";
 import historicoAssistido from "./tools/historico-assistido";
 import registrarVisita from "./tools/registrar-visita";
+import { supabaseProject } from "@/integrations/supabase/project";
 
-const projectRef = import.meta.env["VITE_SUPABASE_PROJECT_ID"] ?? "project-ref-unset";
+const projectRef = supabaseProject.ref;
 
 export default defineMcp({
   name: "vicentino-connect",
