@@ -6,7 +6,7 @@ import { oauthReturnPath } from "@/lib/oauth-return-path";
 export const Route = createFileRoute("/login")({
   validateSearch: (s: Record<string, unknown>) => {
     const n = oauthReturnPath(s.next);
-    return { next: n === "/" ? "/consulta" : n };
+    return { next: n === "/" ? "/app/consulta" : n };
   },
   head: () => ({
     meta: [
@@ -44,17 +44,30 @@ function Login() {
         <h1 className="text-xl font-semibold text-primary">Vicentino Connect</h1>
         <p className="text-sm text-muted-foreground">SSVP Umuarama — acesso interno</p>
         <input
-          type="email" required placeholder="E-mail" value={email}
+          type="email"
+          required
+          placeholder="E-mail"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full rounded-md border border-input bg-background px-3 py-3 text-foreground"
         />
         <input
-          type="password" required placeholder="Senha" value={password}
+          type="password"
+          required
+          placeholder="Senha"
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full rounded-md border border-input bg-background px-3 py-3 text-foreground"
         />
-        {error && <p role="alert" className="text-sm text-destructive">{error}</p>}
-        <button disabled={busy} className="w-full rounded-md bg-primary px-4 py-3 font-medium text-primary-foreground">
+        {error && (
+          <p role="alert" className="text-sm text-destructive">
+            {error}
+          </p>
+        )}
+        <button
+          disabled={busy}
+          className="w-full rounded-md bg-primary px-4 py-3 font-medium text-primary-foreground"
+        >
           {busy ? "Entrando..." : "Entrar"}
         </button>
       </form>
