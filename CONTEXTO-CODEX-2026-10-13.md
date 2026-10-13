@@ -13,7 +13,7 @@
 
 ## Primeiro administrador pendente
 - E-mail indicado: `rafaelamaroumuarama@gmail.com`.
-- Ainda não há conta em `auth.users`. O convite deve ser enviado em **Authentication > Users > Invite user** no Supabase do Vicentino. Não compartilhar senha no chat ou no código.
+- Ainda não há conta em `auth.users`. Como o projeto usa Lovable Cloud, abra o projeto no Lovable e siga **More > Cloud > Users > Add user > Send invitation**. O painel Supabase independente `wnrmoiwczvyjhoclnpbz` não autentica este app. Não compartilhar senha no chat ou no código.
 - Após o convite criar a conta, ativar o perfil e atribuir papel admin no banco:
 ```sql
 BEGIN;
@@ -35,3 +35,4 @@ COMMIT;
 - `npx eslint src/routes/index.tsx src/routes/login.tsx src/routes/app.tsx 'src/routes/app.$section.tsx' src/components/vicentino --rule 'prettier/prettier: off'`
 - Rotas respondem no servidor `npm run dev` (HTTP 200; `/login` redireciona para `?next=/app/consulta`). `npm run preview` local retorna 500 porque o template procura `dist/server/server.js`, enquanto o build gera `.output`.
 - No Windows, o plugin MCP do Lovable usa separadores de caminho incompatíveis; `vite.config.ts` omite esse plugin apenas no Windows. O lint geral acusa finais de linha CRLF pré-existentes no checkout.
+
